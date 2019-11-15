@@ -63,7 +63,15 @@
 <!-- ここから上を編集する必要はありません -->
 
 <!-- ここにモックのtable要素を貼り付けます -->
-
+　　　　　　　　　　　　　　　　　　　　
+							<form th:action="@{/employee/seacheByName}" method="post">
+									従業員名検索：
+									<label th:text="${message}"  class="error-messages">
+											氏名を入力してください
+										</label>
+										<input type="text" name="name" >
+										 <button>検索</button> 
+										 </form>		
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -74,6 +82,9 @@
 					</thead>
 					<tbody>
 						<tr th:each="employee : ${employeeList}">
+						
+									
+										
 							<td>
 								<a href="detail.html" th:href="@{'/employee/showDetail?id=' + ${employee.id}}">
 									<span th:text="${employee.name}">山田太郎</span>

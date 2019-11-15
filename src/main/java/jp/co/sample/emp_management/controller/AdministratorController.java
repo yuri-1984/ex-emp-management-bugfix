@@ -73,7 +73,7 @@ public class AdministratorController {
 	public String insert(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
 		if (null != administratorRepository.findByMailAddress(form.getMailAddress())) {
 			result.rejectValue("mailAddress", null, "メールアドレスが重複してますよ");
-			return toInsert(model);
+
 		}
 
 		if (!form.getCheckPassword().equals(form.getPassword())) {
@@ -82,14 +82,14 @@ public class AdministratorController {
 		}
 		if (result.hasErrors()) {
 			return toInsert(model);
-		} else {
-			Administrator administrator = new Administrator();
-			// フォームからドメインにプロパティ値をコピー
-			BeanUtils.copyProperties(form, administrator);
-			administratorService.insert(administrator);
-			return "redirect:/";
-
-		}
+		} 
+		
+		
+		Administrator administrator = new Administrator();
+		// フォームからドメインにプロパティ値をコピー
+		BeanUtils.copyProperties(form, administrator);
+		administratorService.insert(administrator);
+		return "redirect:/";
 	}
 
 	/////////////////////////////////////////////////////
