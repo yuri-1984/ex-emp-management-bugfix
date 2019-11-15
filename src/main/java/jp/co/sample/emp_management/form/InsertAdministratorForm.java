@@ -19,6 +19,18 @@ public class InsertAdministratorForm {
 	/** パスワード */
 	@NotBlank(message="パスワードは必須入力です")
 	private String password;
+	
+	/** 確認用パスワード */
+	@NotBlank(message="確認用パスワードは必須入力です")
+	private String CheckPassword;
+	
+	
+	public String getCheckPassword() {
+		return CheckPassword;
+	}
+	public void setCheckPassword(String checkPassword) {
+		CheckPassword = checkPassword;
+	}
 	public String getName() {
 		return name;
 	}
@@ -40,7 +52,8 @@ public class InsertAdministratorForm {
 	@Override
 	public String toString() {
 		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
-				+ "]";
+				+ ", CheckPassword=" + CheckPassword + "]";
 	}
+	
 	
 }
